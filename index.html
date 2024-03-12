@@ -3,167 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fabiana | Barbie da T.I.</title>
-    <link href="./output.css" rel="stylesheet">
-    <!-- Favicon -->
-    <link
-        rel="icon"
-        type="image/png"
-        href="favicon-16x16.png">
-    <link
-        rel="icon"
-        type="image/png"
-        href="favicon-32x32.png">
-    <style>
-        body {
-            /* --pink-1: #de14d4; */
-            --pink-1: #f116e6;
-            /* --pink-2: #e545f7; */
-            --pink-2: #f59cff;
-            --pink-3: #e545f777;
-        }
-        .body-wrapper {
-            background-color: var(--pink-1);
-            opacity: 0.6;
-            background-image: radial-gradient(var(--pink-2) 0.8px, var(--pink-1) 0.8px);
-            background-size: 16px 16px;
-        }
-    </style>
+    <title>Fabiana | Homepage</title>
+    <link rel="stylesheet" href="./output.css">
 </head>
-<body class="relative flex items-center justify-center w-screen min-h-screen">
+<body class="bg-slate-600 text-white w-screen h-screen flex items-center justify-center">
     
-    <div class="body-wrapper absolute inset-0 w-full h-full"></div>
-    <div class="flex justify-center items-center w-full h-full py-10 z-10">
-        <div class="bg-white flex flex-col gap-4 p-6 min-h-fit max-w-3xl w-4/5 rounded-md">
-            <h2 class="text-center text-2xl">
-                Olá, <strong class="text-pink-600">Fabiana</strong>!
-            </h2>
-            <div class="border border-pink-300 bg-pink-100 text-pink-600 rounded-md p-2">
-                <h3 class="text-center text-lg">
-                    <span>🎁</span>
-                    Você tem 
-                    <strong>1 convite</strong>
-                    disponível!
-                    <span>🎁</span>
-                </h3>
-                <p class="text-pink-400 text-xs text-center mt-2">
-                    Convite ganho de presente porque <span class="whitespace-nowrap">é seu dia!</span>
-                </p>
-            </div>
-            <hr>
-            <div class="border border-pink-300 rounded-md p-6 shadow-lg shadow-pink-200 flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-normal gap-6 sm:gap-4">
-                <a href="https://www.instagram.com/pedrosofabii/" target="_blank" class="block min-w-40 shadow-lg bg-white p-6 sm:p-2 border border-gray-200 -rotate-3 hover:-rotate-2 hover:scale-105 transition-all">
-                    <div class="border border-pink-300 overflow-hidden">
-                        <img src="img/pic.png" alt="">
+    <div class="border border-slate-700 shadow-xl rounded-md p-6 w-full max-w-4xl">
+
+        <div class="flex flex-col items-center gap-4">
+            <h1 class="text-3xl">
+                Olá, Fabiana!
+            </h1>
+            <hr class="w-full">
+            <p class="text-base">
+                Esta é sua página inicial!
+            </p>
+            <p class="text-xs text-gray-400">
+                Escolha abaixo qual dos apps, feitos especialmente para ti, você deseja visualizar.
+            </p>
+
+            <div class="w-full">
+
+                <div class="grid grid-cols-3 gap-4">
+
+                    <div
+                        class="card group cursor-pointer select-none rounded-md bg-white text-black overflow-hidden transition-all hover:scale-105 focus:scale-105"
+                        data-link="https://google.com">
+                        <header class="h-20 w-full overflow-hidden flex items-center">
+                            <img src="./assets/images/app-convite.png" class="transition-all group-hover:scale-110 group-focus:scale-110">
+                        </header>
+                        <section class="flex flex-col gap-2 p-4 h-[calc(100%-80px)]">
+                            <h2 class="text-xl font-semibold transition-all group-hover:text-pink-600 group-focus:text-pink-600">
+                                Convite para café
+                            </h2>
+                            <hr>
+                            <div class="text-xs text-gray-500">
+                                <p class="mb-2 transition-all group-hover:text-pink-600 group-focus:text-pink-600">
+                                    Mini app para convidá-la para um café.
+                                </p>
+                                <p>
+                                    O app impossibilita a recusa do convite,
+                                    tendo como intenção que a moça se divirta
+                                    ao tentar recusar e acabe aceitando.
+                                </p>
+                            </div>
+                            <div class="action h-10 mt-auto"></div>
+                        </section>
                     </div>
-                    <div class="flex flex-row gap-1 items-center justify-center text-xs text-pink-600 p-1 font-semibold">
-                        <p class="text-center">A</p>
-                        <img src="img/barbie-logo.png" class="h-8" alt="barbie">
-                        <p class="text-center relative">
-                            da T.I.
-                            <span class="absolute -right-6 -top-1/2 text-lg">💅🏻</span>
-                        </p>
+
+                    <div
+                        class="card group cursor-pointer select-none rounded-md bg-white text-black overflow-hidden transition-all hover:scale-105 focus:scale-105"
+                        data-link="https://linkedin.com/in/felipe-wesley">
+                        <header class="h-20 w-full overflow-hidden flex items-center">
+                            <img src="./assets/images/app-player.png" class="transition-all group-hover:scale-110 group-focus:scale-110">
+                        </header>
+                        <section class="flex flex-col justify-start gap-2 p-4 h-[calc(100%-80px)]">
+                            <h2 class="text-xl font-semibold transition-all group-hover:text-pink-600 group-focus:text-pink-600">
+                                Player de música
+                            </h2>
+                            <hr>
+                            <div class="text-xs text-gray-500">
+                                <p class="mb-2 transition-all group-hover:text-pink-600 group-focus:text-pink-600">
+                                    Player com foto e música da moça.
+                                </p>
+                                <p>
+                                    Simples layout de player de música com foto
+                                    da moça na capa do álbum, e, como áudio,
+                                    sua música favorita (mencionada em um café) do
+                                    cantor Luan Santana.
+                                </p>
+                            </div>
+                            <div class="action h-10 mt-auto"></div>
+                        </section>
                     </div>
-                </a>
-                <div class="flex flex-col gap-4 text-sm text-center sm:text-left leading-6">
-                    <p>
-                        Neste histórico <strong class="text-pink-600">dia 23 de fevereiro</strong>,
-                        quando <strong class="text-pink-600">a princesa completa 23 anos</strong>,
-                        seria impossível não comemorar mais um ano completado em sua vida,
-                        onde uma nova etapa se inicia, para que novas coisas boas possam entrar
-                        em sua vida, para que novas conquistas sejam colecionadas e para que
-                        novos momentos felizes sejam vividos!
-                    </p>
-                    <hr>
-                    <p>
-                        E eu, como <strong class="text-pink-600">grande fã de ti</strong> e como bom
-                        <strong class="text-blue-600">garoto de programa</strong> que sou (<span class="text-xl">👨🏻‍💻</span>),
-                        não poderia deixar de lhe dar os parabéns hoje de uma maneira um pouco diferente
-                        <i>(literalmente um site dedicado à <span class="text-pink-600">Barbie da T.I.</span>)</i>,
-                        para te mostrar um pouquinho da imensa admiração que tenho por ti,
-                        da mulher incrível que você é, absolutamente sem defeitos!
-                    </p>
-                    <hr>
-                    <p>
-                        E quero te desejar, não só hoje, mas sempre, tudo de melhor que há nesta vida!
-                        Muitas felicidades, muito sucesso, muito amor 🩷 e que você tenha todos os seus sonhos realizados!
-                    </p>
-                    <hr>
-                    <p class="text-xs text-gray-400">
-                        Para finalizar, sobre o convite mencionado, mais informações logo abaixo...
-                    </p>
+
+                    <div
+                        class="card group cursor-pointer select-none rounded-md bg-white text-black overflow-hidden transition-all hover:scale-105 focus:scale-105"
+                        data-link="https://pedrosofabii.github.io/pedrosofabii/aniversario-23/">
+                        <header class="h-20 w-full overflow-hidden flex items-center">
+                            <img src="./assets/images/app-aniversario.png" class="transition-all group-hover:scale-110 group-focus:scale-110">
+                        </header>
+                        <section class="flex flex-col gap-2 p-4 h-[calc(100%-80px)]">
+                            <h2 class="text-xl font-semibold transition-all group-hover:text-pink-600 group-focus:text-pink-600">
+                                Cartão de aniversário
+                            </h2>
+                            <hr>
+                            <div class="text-xs text-gray-500">
+                                <p class="mb-2 transition-all group-hover:text-pink-600 group-focus:text-pink-600">
+                                    Site barbie de aniversário de 23 anos.
+                                </p>
+                                <p>
+                                    Design temático da Barbie com palavras de felicitações
+                                    e demonstração dos sentimentos do autor, com um convite
+                                    para um café em comemoração ao aniversário da dama,
+                                    num local especial para ambos. Obs.: o café não aconteceu.
+                                </p>
+                            </div>
+                            <div class="action h-10 mt-auto"></div>
+                        </section>
+                    </div>
+
                 </div>
+
             </div>
-            <hr>
-            <h3 class="text-lg font-semibold text-center text-pink-600">
-                💌 Informações do convite
-            </h3>
-            <div class="flex text-xs">
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    <div class="group hover:scale-105 transition-all flex flex-col gap-2 items-center justify-center border border-pink-300 bg-pink-100 text-pink-600 px-2 pb-4 rounded-md w-full h-full min-h-32 shadow-md shadow-pink-100">
-                        <div class="group-hover:scale-110 group-hover:text-2xl transition-all flex items-center justify-center border border-pink-300 bg-white rounded-full w-10 h-10 text-lg">
-                            <span class="relative -top-0.5">👥</span>
-                        </div>
-                        <span class="text-center leading-5">
-                            Convite válido para <strong>você + 1 acompanhante</strong>.
-                        </span>
-                    </div>
-                    <div class="group hover:scale-105 transition-all flex flex-col gap-2 items-center justify-center border border-pink-300 bg-pink-100 text-pink-600 px-2 pb-4 rounded-md w-full h-full min-h-32 shadow-md shadow-pink-100">
-                        <div class="group-hover:scale-110 group-hover:text-2xl transition-all flex items-center justify-center border border-pink-300 bg-white rounded-full w-10 h-10 text-lg">
-                            <span class="">🙋‍♂️</span>
-                        </div>
-                        <span class="text-center leading-5">
-                            Seu acompanhante <strong>precisa ser eu</strong>, caso contrário, o convite não será válido.
-                        </span>
-                    </div>
-                    <div class="group hover:scale-105 transition-all flex flex-col gap-2 items-center justify-center border border-pink-300 bg-pink-100 text-pink-600 px-2 pb-4 rounded-md w-full h-full min-h-32 shadow-md shadow-pink-100">
-                        <div class="group-hover:scale-110 group-hover:text-2xl transition-all flex items-center justify-center border border-pink-300 bg-white rounded-full w-10 h-10 text-lg">
-                            <span class="">🤝🏼</span>
-                        </div>
-                        <span class="text-center leading-5">
-                            Você não poderá ir sozinha! É <strong>obrigatória a presença do seu acompanhante</strong>!
-                        </span>
-                    </div>
-                    <div class="group hover:scale-105 transition-all flex flex-col gap-2 items-center justify-center border border-pink-300 bg-pink-100 text-pink-600 px-2 pb-4 rounded-md w-full h-full min-h-32 shadow-md shadow-pink-100">
-                        <div class="group-hover:scale-110 group-hover:text-2xl transition-all flex items-center justify-center border border-pink-300 bg-white rounded-full w-10 h-10 text-lg">
-                            <span class="">🥳</span>
-                        </div>
-                        <span class="text-center leading-5">
-                            O objetivo é comemorar sua vida! Então, a única opção disponível é <strong>aceitar</strong>!
-                        </span>
-                    </div>
-                    <div class="group hover:scale-105 transition-all flex flex-col gap-2 items-center justify-center border border-pink-300 bg-pink-100 text-pink-600 px-2 pb-4 rounded-md w-full h-full min-h-32 shadow-md shadow-pink-100">
-                        <div class="group-hover:scale-110 group-hover:text-2xl transition-all flex items-center justify-center border border-pink-300 bg-white rounded-full w-10 h-10 text-lg">
-                            <span class="">📍</span>
-                        </div>
-                        <span class="text-center leading-5">
-                            Local sugerido: o charmoso
-                            <span class="whitespace-nowrap">
-                                <a class="whitespace-nowrap underline font-semibold hover:text-pink-400" href="https://www.instagram.com/jardinscafe/" target="_blank">
-                                    Jardins Café
-                                </a>
-                                (🔗)
-                            </span>
-                        </span>
-                    </div>
-                    <div class="group hover:scale-105 transition-all flex flex-col gap-2 items-center justify-center border border-pink-300 bg-pink-100 text-pink-600 px-2 pb-4 rounded-md w-full h-full min-h-32 shadow-md shadow-pink-100">
-                        <div class="group-hover:scale-110 group-hover:text-2xl transition-all flex items-center justify-center border border-pink-300 bg-white rounded-full w-10 h-10 text-lg">
-                            <span class="">🕑</span>
-                        </div>
-                        <span class="text-center leading-5">
-                            Horário sugerido: <strong>um beeem tranquilo para você</strong>, para termos tempo!
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <button id="accept-btn" class="hover:scale-105 bg-pink-600 text-white rounded-md p-4 hover:bg-pink-400 transition-all">
-                Confirmo que recebi o convite
-            </button>
+
         </div>
+
     </div>
 
-    <script src="index.js"></script>
+    <script src="./script.js"></script>
 
 </body>
 </html>

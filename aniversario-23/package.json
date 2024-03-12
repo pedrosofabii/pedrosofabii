@@ -1,11 +1,11 @@
 {
-  "name": "home-teste",
+  "name": "app-convite",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tailwindcss": "npx tailwindcss -i ./input.css -o ./output.css --watch"
+    "watch": "npx tailwindcss -i ./input.css -o ./output.css --watch"
   },
   "keywords": [],
   "author": "",
