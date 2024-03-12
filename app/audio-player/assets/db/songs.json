@@ -1,0 +1,62 @@
+[
+    {
+        "id": "fabiana",
+        "name": "Seu doutor - Luan Santana",
+        "author": "Curtida por Fabiana",
+        "audio": {
+            "format": "mp3",
+            "mimeType": "audio/mp3"
+        },
+        "cover": {
+            "format": "jpg"
+        }
+    },
+    {
+        "id": "felipe",
+        "name": "Celta - Luan Santana",
+        "author": "Curtida por Felipe",
+        "audio": {
+            "format": "mp3",
+            "mimeType": "audio/mp3"
+        },
+        "cover": {
+            "format": "jpg"
+        }
+    },
+    {
+        "id": "billionaire",
+        "name": "Billionaire",
+        "author": "Travie McCoy ft. Bruno Mars",
+        "audio": {
+            "format": "mp3",
+            "mimeType": "audio/mp3"
+        },
+        "cover": {
+            "format": "jpg"
+        }
+    },
+    {
+        "id": "boate_azul",
+        "name": "Boate Azul",
+        "author": "Bruno & Marrone, Chitãozinho & Xororó",
+        "audio": {
+            "format": "mp3",
+            "mimeType": "audio/mp3"
+        },
+        "cover": {
+            "format": "jpg"
+        }
+    },
+    {
+        "id": "girassol",
+        "name": "Maldito girassol",
+        "author": "Luan Santana",
+        "audio": {
+            "format": "mp3",
+            "mimeType": "audio/mp3"
+        },
+        "cover": {
+            "format": "jpg"
+        }
+    }
+]

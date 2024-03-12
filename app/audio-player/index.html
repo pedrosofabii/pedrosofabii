@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabiana's Songs</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/tailwind.css">
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body class="relative grid place-items-center bg-main animate-background">
+    
+    <button id="choose-song-btn" class="absolute top-4 sm:top-10 right-4 sm:right-10 flex items-center justify-center rounded-full p-2 bg-gray-700 bg-opacity-50 text-white w-12 sm:w-20 h-12 sm:h-20 cursor-pointer">
+        <span class="material-icons sm:scale-150">
+            library_music
+        </span>
+    </button>
+
+    <div class="flex justify-center items-center p-4 sm:p-8 h-screen w-screen">
+
+        <!-- Error -->
+        <aside id="main-error" class="hidden w-main max-w-full">
+    
+            <div class="border bg-red-50 text-red-700 border-red-700 rounded-md p-4 w-full">
+                <div class="flex items-start gap-4">
+                    <span class="material-icons text-current">
+                        error
+                    </span>
+                    <div class="flex flex-col gap-2">
+                        
+                        <strong>Ops! Ocorreu algum erro.</strong>
+                        <p>
+                            Parece que essa música não está disponível para ouvir agora!
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+        </aside>
+    
+        <!-- Player -->
+        <main id="main-song" class="hidden w-main max-w-full">
+    
+            <section class="p-4 py-8 sm:p-8 rounded-md bg-gray-700 bg-opacity-50 shadow-2xl w-full">
+    
+                <article class="flex flex-col justify-center items-center gap-6">
+        
+                    <header class="flex flex-col sm:flex-row items-center justify-start gap-4 w-full">
+            
+                        <figure class="flex w-56 sm:w-32">
+                            <img
+                                id="song-cover"
+                                class="rounded-md"
+                                src="./assets/images/no-image.jpg">
+                        </figure>
+            
+                        <div class="flex flex-col items-center sm:items-start justify-center gap-2">
+                            <h2 class="uppercase text-2xl text-gray-50 truncate" id="song-name">
+                                Sem título
+                            </h2>
+                            <h3 class="text-lg text-gray-300 truncate" id="song-author">
+                                Sem autor
+                            </h3>
+                        </div>
+            
+                    </header>
+            
+                    <section class="flex flex-col gap-2 w-full">
+        
+                        <div class="flex w-full h-2 bg-gray-400 rounded-full overflow-hidden hover:brightness-125 transition-all">
+                            <div
+                                id="song-current-time-progress-bar"
+                                class="h-full bg-main animate-background brightness-125"></div>
+                        </div>
+                        <div class="flex items-center justify-between w-full text-gray-200">
+                            <span id="song-current-time" class="text-xs text-current">
+                                00:00
+                            </span>
+                            <span id="song-total-time" class="text-xs text-current">
+                                00:00
+                            </span>
+                        </div>
+        
+                    </section>
+        
+                    <section class="w-full text-white">
+                        
+                        <audio id="app-song" class="hidden"></audio>
+        
+                        <div class="flex items-center justify-between gap-2 px-12 sm:px-16">
+                            <button
+                                disabled
+                                id="song-btn-previous"
+                                class="material-icons text-gray-400 scale-previous-and-next">
+                                fast_rewind
+                            </button>
+                            <button
+                                id="song-btn-play"
+                                class="material-icons text-current scale-play-and-pause hover:scale-play-and-pause-on-hover transition-transform">
+                                play_circle_filled
+                            </button>
+                            <button
+                                disabled
+                                id="song-btn-next"
+                                class="material-icons text-gray-400 scale-previous-and-next">
+                                fast_forward
+                            </button>
+                        </div>
+        
+                    </section>
+            
+                </article>
+    
+            </section>
+    
+        </main>
+
+    </div>
+
+    <script defer type="module" src="./js/index.js"></script>
+
+</body>
+</html>
