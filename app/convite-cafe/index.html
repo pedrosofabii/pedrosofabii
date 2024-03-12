@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabiana | Convite para café</title>
+    <style>
+        html {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+        }
+        body {
+            padding: 0;
+            margin: 0;
+            background: #292929;
+            color: #fff;
+        }
+        html body * {
+            box-sizing: border-box;
+            font-size: 1rem;
+        }
+        main {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            padding: 5px;
+        }
+        .no-attemps {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            border-style: solid;
+            border-width: 2px;
+            border-color: #0d6efd;
+            border-radius: 15px;
+
+            color: #0d6efd;
+            background: #abcdff;
+
+            padding: 15px;
+            width: 90%;
+        }
+        .actions {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .action-btn {
+            position: relative;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 15px;
+            padding: 10px 15px;
+            margin: 0;
+            transition: ease-in-out .15s;
+            width: 100px;
+        }
+        .action-btn:hover {
+            cursor: pointer;
+            filter: brightness(1.1);
+        }
+        .action-btn-wrapper {
+            /* position: absolute; */
+            background: transparent;
+        }
+        #action-yes {
+            background: #0d6efd;
+            border-color: #0d6efd;
+            color: #fff;
+        }
+        #action-no {
+            background: #dc3545;
+            border-color: #dc3545;
+            color: #fff;
+        }
+        .text-sm {
+            font-size: 0.7rem;
+        }
+        .text-center {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <main id="main">
+        <p class="text-center">
+            <small class="text-sm text-center">
+                Fabiana | Convite especial
+            </small>
+        </p>
+        <p class="text-center">
+            Seria do seu agrado a minha companhia para tomar um café?
+        </p>
+        <p class="text-center">
+            <small class="text-sm text-center">
+                Este convite inclui um pão de queijo, uma caminhada e um cheiro no pescoço, tudo com o intuito de matar a saudade.
+            </small>
+        </p>
+        <div class="actions">
+            <button class="action-btn" id="action-yes">
+                Sim
+            </button>
+            <div class="action-btn-wrapper">
+                <button class="action-btn" id="action-no">
+                    Não
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript">
+
+        const SECURITY_MARGIN = 5;
+        const SURVEY_COMPLETED_FLAG_NAME = 'survey-completed';
+        const REFUSE_ATTEMPLS_KEY_NAME = 'refuse-attemps';
+
+        let refuseAttemps = 0;
+
+        function main() {
+
+            const surveyCompleted = JSON.parse(sessionStorage.getItem(SURVEY_COMPLETED_FLAG_NAME));
+
+            if (surveyCompleted) {
+
+                const mainEl = document.getElementById('main');
+                
+                const noAttempsText = document.createElement('div');
+                noAttempsText.className = 'no-attemps';
+                noAttempsText.innerHTML = 'Não há mais tentativas disponíveis por hoje!';
+                
+                let showAttempsCounter = 0;
+
+                noAttempsText.onclick = () => {
+
+                    showAttempsCounter++;
+
+                    if (showAttempsCounter == 5) {
+
+                        let message = '';
+
+                        const refuseAttempsValue = JSON.parse(sessionStorage.getItem(REFUSE_ATTEMPLS_KEY_NAME));
+
+                        if (refuseAttempsValue == 0) {
+                            message = `Que bom que não tentou recusar! Tu é demais!`
+                        } else if (refuseAttempsValue == 1) {
+                            message = `Acho que houve um equívoco, pois parecec que tu acabou tentando recusar uma vez o convite! :(`;
+                        } else {
+                            message = `Poxa, tentou recusar ${refuseAttempsValue} vezes o convite :(`;
+                        }
+
+                        alert(message);
+                    }
+
+                    if (showAttempsCounter == 10) {
+                        sessionStorage.removeItem(SURVEY_COMPLETED_FLAG_NAME);
+                        sessionStorage.removeItem(REFUSE_ATTEMPLS_KEY_NAME);
+
+                        location.reload();
+                    }
+                }
+
+                mainEl.innerHTML = '';
+                mainEl.appendChild(noAttempsText);
+
+            } else {
+
+                const btnYes = document.getElementById('action-yes');
+                const btnNo = document.getElementById('action-no').parentElement;
+
+                initDefaultStyles();
+
+                btnNo.onmouseenter = (ev) => {
+                    refuseAttemps++;
+                    return getRecalcPositionCb(btnNo)(ev);
+                };
+                btnYes.onclick = () => {
+
+                    alert("O programador deste app agradece a sua atenção e te manda beijos! Entre em contato para mais informações :heart:");
+                    
+                    sessionStorage.setItem(SURVEY_COMPLETED_FLAG_NAME, true);
+                    sessionStorage.setItem(REFUSE_ATTEMPLS_KEY_NAME, refuseAttemps);
+
+                    // Re-invoke main method
+                    main();
+                };
+            }
+        }
+
+        function initDefaultStyles() {
+            for (const wrapper of document.getElementsByClassName('action-btn-wrapper')) {
+                wrapper.style.padding = `${SECURITY_MARGIN}px`;
+            }
+        }
+
+        function generateRandomPosition(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function newPositionIsInvalidOrInsecure(newPos, oldPos, inner, elDimension) {
+
+            const elFullDimension = (elDimension + (SECURITY_MARGIN * 2)) + 1;
+
+            return (
+                newPos < 0 ||
+                newPos > inner ||
+                (newPos + elFullDimension) > inner ||
+                (newPos - elFullDimension) == oldPos ||
+                (newPos + elFullDimension) == oldPos ||
+                newPos == oldPos ||
+                (newPos > oldPos ? ((newPos - oldPos) < elFullDimension) : ((oldPos - newPos) < elFullDimension))
+            );
+        }
+
+        function generateNewValidAndSecurePosition(currentX, currentY, elWidth, elHeight) {
+
+            let [x, y] = [undefined, undefined];
+            const { innerWidth, innerHeight } = window;
+
+            while (x === undefined || newPositionIsInvalidOrInsecure(x, currentX, innerWidth, elWidth)) {
+                x = generateRandomPosition(0, innerWidth);
+            }
+
+            while (y === undefined || newPositionIsInvalidOrInsecure(y, currentY, innerHeight, elHeight)) {
+                y = generateRandomPosition(0, innerHeight);
+            }
+
+            return { x, y };
+        }
+
+        function isOverAnotherElement(width, height, x, y, targetElementBounding) {
+
+            // width += SECURITY_MARGIN * 2;
+            // height += SECURITY_MARGIN * 2;
+
+            const isOver = (
+                targetElementBounding.x < x &&
+                targetElementBounding.x > x + (width) &&
+                targetElementBounding.y < y &&
+                targetElementBounding.y > y + height
+            );
+
+            return isOver;
+        }
+
+        function getRecalcPositionCb(el) {
+            
+            return function(ev) {
+                ev.preventDefault();
+
+                const elementsToCheck = [
+                    document.getElementById('action-yes')
+                ];
+                
+                const { x, y } = el.getBoundingClientRect();
+                let overAnotherElement = true;
+
+                while (overAnotherElement) {
+
+                    overAnotherElement = false;
+
+                    const newPosition = generateNewValidAndSecurePosition(x, y, el.clientWidth, el.clientHeight);
+
+                    // for (const elRef of elementsToCheck) {
+                    //     if (isOverAnotherElement(el.clientWidth, el.clientHeight, newPosition.x, newPosition.y, elRef.getBoundingClientRect()))
+                    //         overAnotherElement = true;
+                    // }
+
+                    if (!overAnotherElement) {
+                        
+                        el.style.position = 'fixed';
+
+                        el.style.top = `${newPosition.y}px`;
+                        el.style.left = `${newPosition.x}px`;
+                    }
+                }
+            };
+        }
+
+        main();
+
+    </script>
+
+</body>
+</html>
